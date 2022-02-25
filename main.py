@@ -3,6 +3,7 @@ import os
 import random
 from keep_alive import keep_alive
 client = discord.Client()
+
 #Activity
 @client.event
 async def on_ready():
@@ -10,12 +11,14 @@ async def on_ready():
  activity = discord.Activity(type=discord.ActivityType.playing, name='Discord Nitro')
  await client.change_presence(status=discord.Status.dnd,activity=activity)
  channel = client.get_channel(945306594609090580)
+ #Bot Logs
  await channel.send('Restarting...')
  print('Restarting...')
  #Updates
  #channel = client.get_channel()
  #await channel.send('`Restarting...`')
-#Guild
+
+ #Guild
 @client.event
 async def on_guild_join(guild):
  channel = client.get_channel(945306594609090580)
@@ -49,11 +52,12 @@ async def on_message(message):
         print('!commands was used')
         channel = client.get_channel(945306594609090580)
         await channel.send('!commands was being used')
-       
+    
+    #Server
     if message.content.startswith('!server'):
       await message.channel.send('discord.gg/pnzay6zb73')
       
-    
+    #Invites
     if message.content.startswith('!invite'):
         embedVar = discord.Embed(title="+Nitro", description="`+Nitro is a multi function Discord Bot`",color=0x00ff00)
         embedVar.add_field(name="Invite", value="https://discord.com/api/oauth2/authorize?client_id=945156309706223636&permissions=8&scope=bot", inline=False) 
@@ -61,7 +65,7 @@ async def on_message(message):
         await message.channel.send('**Invite fast , before it breaks ! It is currently in 69 servers**')
         channel = client.get_channel(945306594609090580)
         await channel.send('!invite was being used')
-
+    #Advertisements
     if message.content.startswith('!ads'):
         embedVar = discord.Embed(title="Advertisements", description="`+Nitro is a multi function Discord Bot`",color=0x00ff00)
         embedVar.set_author(name="+Nitro",  icon_url="https://memebit-forum.000webhostapp.com/php/788176012537495552.webp")
@@ -253,6 +257,7 @@ async def on_message(message):
     if message.author.id == client.user.id:
         return
     msg_content = message.content.lower()
+    #Nitro Phishing Database
     phishingnitro = [
     "101nitro.com",
     "1nitro.club",
